@@ -1,0 +1,32 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      #cr-stage {
+        border-style:solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div>positive scroll means moving entities to the positive x or y direction</div>
+    <div>
+      Crafty.viewport.x: <span id="scrollx"></div>
+    </div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 400);
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 100, h: 100})
+          .color("red");
+        });
+
+        Crafty.viewport.scroll('_x', 100);
+        document.getElementById("scrollx").innerHTML=Crafty.viewport.x;
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

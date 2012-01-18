@@ -1,0 +1,27 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      #cr-stage {
+        border-style:solid;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 400);
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 100, h: 100})
+          .color("red");
+        });
+
+        Crafty.viewport.pan('y', 100, 10);
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

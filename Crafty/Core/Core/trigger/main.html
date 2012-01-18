@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <button onclick="clkbutton();">Tigger event</button>
+    <div id="number">No event yet.</div>
+    <script type="text/javascript" src="http://craftyjs.com/release/0.4.4/crafty.js"></script>
+    <script>
+
+      player=Crafty.e()
+      .attr("triggers", 0)
+      .bind("myevent", function() {
+        this.triggers++;
+      })
+      .bind("myevent", function() {
+        this.triggers++;
+      })
+      ;
+
+      clkbutton=function() {
+        player.trigger('myevent');
+        var div=document.getElementById('number');
+        div.innerHTML="The event is triggered " + player.triggers + " times.";
+      }
+    </script>
+  </body>
+</html>

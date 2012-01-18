@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="random"></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+
+    <script>
+      window.onload = function () {
+        var x=new Array();
+        for(i = 0; i < 10; ++i) {
+          x.push(Crafty.math.randomInt(0,3));
+        }
+        document.getElementById("random").innerHTML=x;
+      };
+    </script>
+  </body>
+</html>

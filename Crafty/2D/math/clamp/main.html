@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div><span id="clamp_lower"></span></div>
+    <div><span id="clamp_middle"></span></div>
+    <div><span id="clamp_upper"></span></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      document.getElementById("clamp_lower").innerHTML=Crafty.math.clamp(-1, 1, 3);
+      document.getElementById("clamp_middle").innerHTML=Crafty.math.clamp(1.5, 1, 3);
+      document.getElementById("clamp_upper").innerHTML=Crafty.math.clamp(4, 1, 3);
+    </script>
+  </body>
+</html>

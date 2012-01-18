@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          player1=Crafty.e("2D, DOM, Multiway")
+          .attr({
+            x: -1000
+            , y: 200 
+            , w: 100
+            , h: 100
+          })
+          .css({
+            "background-color": "red"
+          })
+          .multiway(1, {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180});
+
+          player2=Crafty.e("2D, DOM")
+          .attr({
+            x: -1000
+            , y: 300 
+            , w: 100
+            , h: 100
+          })
+          .css({
+            "background-color": "yellow"
+          });
+
+          //Crafty.viewport.scroll('_x', 1000);
+          Crafty.viewport._clamp();
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

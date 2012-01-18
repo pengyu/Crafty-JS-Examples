@@ -1,0 +1,46 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+  </script>
+    <script>
+      Crafty.extend({
+        mouseWheelDispatch: function(e) {
+          Crafty.trigger("MouseWheel", e);
+        }
+      });
+
+      //initialize the input events onload
+      Crafty.bind("Load", function() {
+        Crafty.addEvent(this, "mousewheel", Crafty.mouseWheelDispatch);
+      });
+
+      Crafty.bind("MouseWheel", function(e) {
+        var delta= (e.wheelDelta? e.wheelDelta/120 : evt.detail)/2;
+        Crafty.viewport.zoom(
+        (delta>0)? (delta+1) : 1/(-delta+1)
+        , Crafty.viewport.width/2
+        , Crafty.viewport.height/2
+        , 10);
+      });
+
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .color("red");
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

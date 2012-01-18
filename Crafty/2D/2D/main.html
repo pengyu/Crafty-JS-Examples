@@ -1,0 +1,30 @@
+<!DOCTYPE html5>
+<html>
+  <body>
+    <script type="text/javascript" src="https://s3.amazonaws.com/craftyjs/crafty-SNAPSHOT.js"></script>
+    <script>
+      entity=Crafty.e("2D").attr({x:20, y:30, w:50, h:70});
+      entity.area();
+      entity.intersect(30,40,50,70);
+      entity.within(10,20,60,80);
+      entity.contains(30,40,30,50);
+      entity.pos();
+      entity.mbr();
+      entity.isAt(30,40);
+      entity.move('n',30);
+      entity.shift(20,30);
+
+      entity.origin("center")
+      
+
+      document.write('<div> .x = ' + entity.x + '</div>');
+      document.write('<div> .y = ' + entity.y + '</div>');
+      document.write('<div> .w = ' + entity.w + '</div>');
+      document.write('<div> .h = ' + entity.h + '</div>');
+      document.write('<div> .area() = ' + entity.area() + '</div>');
+      document.write('<div> .intersect() = ' + entity.intersect.toString() + '</div>');
+     //entity.intersect( x, Number y, Number w, Number h)
+  </script>
+</body>
+</html>
+</body>

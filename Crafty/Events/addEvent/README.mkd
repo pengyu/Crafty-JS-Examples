@@ -1,0 +1,6 @@
+The callback function _fn_ is actually attached to the _type_ event of _obj_.
+But its _this_ variable is _ctx_, and its only argument is the _event_ object.
+The actual work is done by _addEventListener_.
+
+
+The event is registered to the entity that calls addEvent with the combination of the arguments _ctx_, _obj_, _type_ and _fn_ as the key.

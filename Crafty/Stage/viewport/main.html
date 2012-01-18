@@ -1,0 +1,26 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      #cr-stage {
+        border-style:solid;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://s3.amazonaws.com/craftyjs/crafty-SNAPSHOT.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .color("red");
+        });
+
+        Crafty.viewport.x=100;
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

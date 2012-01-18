@@ -1,0 +1,38 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      #cr-stage {
+        position:absolute;
+        left:100px;
+        top:200px;
+        border-style:solid;
+      }
+    </style>
+  </head>
+  <body onmousemove="client(event);">
+
+    <div>clientX: <span id="clientX"></span> </div>
+    <div>clientY: <span id="clientY"></span> </div>
+    <div>Crafty.stage: <span id="Crafty.stage"></span></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      function client(event) {
+        document.getElementById('clientX').innerHTML=event.clientX;
+        document.getElementById('clientY').innerHTML=event.clientY;
+      }
+
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          var e = Crafty.e("2D, DOM, Color").attr({ x: 50, y: 50, w: 150, h: 200}).color('red');
+          var before = Crafty.DOM.translate(e.x, e.y);
+          document.getElementById("Crafty.stage").innerHTML=Crafty.stage.x + ',' + Crafty.stage.y
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

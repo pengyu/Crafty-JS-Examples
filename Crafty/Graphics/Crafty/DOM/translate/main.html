@@ -1,0 +1,62 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage {
+        /*position:absolute;
+        */
+        /*top:100px;
+        left:100px;
+        */
+        border-style:solid;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body onmousemove="client(event);">
+    <div>clientX: <span id="clientX"></span> </div>
+    <div>clientY: <span id="clientY"></span> </div>
+
+    <!--
+    <div>Original: <span id="original"></span></div>
+    <div>Stage: <span id="stage_coor"></span></div>
+    <div>body.scroll: <span id="body_scroll"></span></div>
+    <div>document.documentElement.scroll: <span id="docelem_scroll"></span></div>
+    <div>viewport: <span id="viewport_coor"></span></div>
+    -->
+    <div>Position on Crafty.stage: <span id="stage_pos"></span></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color").attr({ x: 0, y: 0, w: 150, h: 200}).color('red');
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+    <script type="text/javascript">
+      function client(event) {
+        event = event || window.event;
+        document.getElementById('clientX').innerHTML=event.clientX;
+        document.getElementById('clientY').innerHTML=event.clientY;
+
+        Crafty.viewport.scroll('_x', 10);
+        Crafty.viewport.scroll('_y', 20);
+        /*
+           document.getElementById("original").innerHTML=e.x +',' + e.y;
+           document.getElementById("stage_coor").innerHTML=Crafty.stage.x + ',' + Crafty.stage.y
+           document.getElementById("body_scroll").innerHTML=document.body.scrollLeft + ',' + document.body.scrollTop;
+           document.getElementById("docelem_scroll").innerHTML=document.documentElement.scrollLeft + ',' + document.documentElement.scrollTop;
+           document.getElementById("viewport_coor").innerHTML=Crafty.viewport._x + ',' + Crafty.viewport._y;
+         */
+
+        var stage_pos = Crafty.DOM.translate(event.clientX, event.clientY);
+        document.getElementById("stage_pos").innerHTML=stage_pos.x +',' + stage_pos.y;
+      }
+</script>
+  </body>
+</html>

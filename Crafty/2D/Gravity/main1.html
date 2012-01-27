@@ -1,0 +1,46 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="/Users/pengy/dvcs_src/craftyjs1/Crafty/crafty.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 500);
+
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Gravity")
+          .attr({x: 100, y: 100, w: 50, h: 20})
+          .css({
+            "background-color": "red",
+            "border-style": "solid"
+          })
+          .gravity()
+          .gravityConst(.02);
+
+          Crafty.e("2D, DOM, Gravity")
+          .attr({x: 300, y: 100, w: 50, h: 20})
+          .css({
+            "background-color": "red",
+            "border-style": "solid"
+          })
+          .gravity('ground')
+          .gravityConst(.02);
+
+          Crafty.e("2D, DOM, ground")
+          .attr({x: 0, y: 400, w: 400, h: 10})
+          .css({
+            "background-color": "red",
+            "border-style": "solid"
+          });
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

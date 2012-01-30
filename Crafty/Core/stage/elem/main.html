@@ -3,7 +3,7 @@
   <head>
     <style>
       body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
-      #cr-stage { border:2px solid black; margin:5px auto; color:white }
+      #cr-stage { border:2px solid black; margin:5px auto}
     </style>
   </head>
   <body>
@@ -11,13 +11,11 @@
     <script>
       window.onload = function () {
         Crafty.init(400, 336);
-
-        Crafty.scene("main", function () {
-          Crafty.background("#0000FF");
-        });
-
-        Crafty.scene("main");
-      };
+        //Crafty.canvas.init();
+        var elem=document.createElement('div');
+        elem.innerHTML="Test Element";
+        Crafty.stage.elem.appendChild(elem);
+      }
     </script>
   </body>
 </html>

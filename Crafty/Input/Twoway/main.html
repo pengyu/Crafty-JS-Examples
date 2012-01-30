@@ -7,12 +7,14 @@
     </style>
   </head>
   <body>
-    <script type="text/javascript" src="http://craftyjs.com/release/0.4.4/crafty-min.js"></script>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init(400, 336);
+        Crafty.init(400, 500);
 
         Crafty.scene("main", function () {
+          var speed = 1;
+          var jumpSpeed = 10;
           Crafty.e("2D, DOM, Twoway, Gravity")
           .attr({
             x: 150
@@ -23,8 +25,12 @@
           .css({
             "background-color": "red"
           })
-          .twoway(1, 1)
-          .gravity(0);
+          .twoway(speed, jumpSpeed)
+          .gravity("ground");
+
+          Crafty.e("2D, DOM, Color, ground")
+          .attr({x: 0, y: 400, w: 400, h: 10})
+          .color("blue");
         });
 
         Crafty.scene("main");

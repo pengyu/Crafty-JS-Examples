@@ -48,4 +48,3 @@ window.onload = function () {
   Crafty.scene("main");
 }
 
-

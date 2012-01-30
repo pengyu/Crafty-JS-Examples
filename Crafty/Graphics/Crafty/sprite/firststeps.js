@@ -15,18 +15,16 @@ window.onload = (function() {
      * other components:
      *  - 2D, Canvas: can be drawn on a Canvas
      *  - Color: has a Background Color
-     *  - Fourway: can be moved with WASD and arrow keys
      *  - Mouse: reacts on mouse events, like click
      *  - Tween: simple animation, used here for fading out after mouse click
      *  - crate: That's the Sprite defined above, not really a JS component
      */
     Crafty.c("Box", {
         init: function() {
-            this.addComponent("2D, Canvas, Color, Fourway, Mouse, Tween, crate");
+            this.addComponent("2D, Canvas, Color, Mouse, Tween, crate");
 
             this.w = 32;    // width
             this.h = 32;    // height
-            this.fourway(10);   // initalize 4-way movement
 
             /*
              * An 'enterframe' event is created by Crafty for every frame that is
@@ -46,6 +44,7 @@ window.onload = (function() {
              * This is done with the Tween component and it takes 50 frames from 1.0 to 0.0.
              */
             this.bind("Click", function(e) {
+                this.rotation = 32;
                 console.log(arguments);
                 this.tween({alpha: 0.0}, 50);
             });

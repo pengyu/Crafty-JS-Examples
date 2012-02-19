@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>Note that event binds first is triggered first.</div>
+    <button id="trigger">Tigger event</button>
+    <div id="text">No event yet.</div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload=function() {
+
+        var player=Crafty.e()
+        .attr("text", '')
+        .bind("myevent", function() {
+          this.text += ' first';
+        })
+        .bind("myevent", function() {
+          this.text += ' second';
+        });
+
+        function display_count() {
+          var div1=document.getElementById('text');
+          div1.innerHTML="text: " + player.text;
+        }
+
+        display_count();
+
+        document.getElementById('trigger').onclick=function () {
+          player.trigger('myevent');
+          display_count();
+        }
+      }
+    </script>
+  </body>
+</html>

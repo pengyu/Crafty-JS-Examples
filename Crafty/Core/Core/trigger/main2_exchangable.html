@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="clkbutton();">Tigger event</button>
+    <div id="triggers">No event yet.</div>
+    <div id="trigger_text"></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+
+      player=Crafty.e()
+      .attr("triggers", 1)
+      .attr("trigger_text", 1)
+      .bind("myevent", function(arg) {
+        this.trigger_text = arg.text;
+      })
+      .bind("myevent", function() {
+        this.triggers++;
+      });
+
+      clkbutton=function() {
+        player.trigger('myevent', {text: 'notice'});
+        var div1=document.getElementById('triggers');
+        var div2=document.getElementById('trigger_text');
+        div1.innerHTML="triggers: " + player.triggers;
+        div2.innerHTML="trigger text: " + player.trigger_text;
+      }
+    </script>
+  </body>
+</html>

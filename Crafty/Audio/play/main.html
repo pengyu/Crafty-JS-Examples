@@ -7,10 +7,21 @@
     </style>
   </head>
   <body>
+    <!--
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    -->
+    <script type="text/javascript" src="http://localhost/~pengy/crafty/crafty.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init(400, 336);
+        Crafty.audio.add({
+          shoot: [
+          "water_splash.wav",
+          "water_splash.mp3",
+          "water_splash.ogg",
+          ],
+        });
+
+        Crafty.audio.play("shoot", -1);
       }
     </script>
   </body>

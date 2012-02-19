@@ -7,13 +7,13 @@
     </style>
   </head>
   <body>
-    <script type="text/javascript" src="http://craftyjs.com/release/0.4.4/crafty-min.js"></script>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          player1=Crafty.e("2D, DOM, Multiway")
+          player1=Crafty.e("2D, DOM, Multiway, Mouse")
           .attr({
             x: 150
             , y: 120 
@@ -35,7 +35,13 @@
           .css({
             "background-color": "yellow"
           });
+
           player1.attach(player2);
+
+          player1.bind('Click', function() {
+            this.destroy();
+          }
+          );
 
           player1.attr({
             x: 0

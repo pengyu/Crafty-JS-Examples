@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -8,6 +8,28 @@
   </head>
   <body>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
-    <script src='main.js'> </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        Crafty.init(400, 400);
+
+        Crafty.scene("main", function () {
+            Crafty.e("2D, DOM, Color")
+            .attr({x: 0, y: 0, w: 50, h: 50})
+            .color("red")
+            .bind("EnterFrame", function () {
+              ++this.x;
+              ++this.y;
+              if(this.x>400) {
+              this.x-=400;
+              }
+              if(this.y>400) {
+              this.y-=400;
+              }
+              });
+            });
+
+        Crafty.scene("main");
+      }
+</script>
   </body>
 </html>

@@ -12,6 +12,23 @@
     <div id='targetx'></div>
     <div id='targety'></div>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
-    <script src='main.js'> </script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          var e=Crafty.e("2D, DOM, Color, Mouse")
+          .attr({x: 0, y: 0, w: 50, h: 50})
+          .color("red")
+          .bind('MouseDown', function() {
+            this.color("yellow")
+          });
+        });
+
+        Crafty.scene("main");
+      }
+
+
+    </script>
   </body>
 </html>

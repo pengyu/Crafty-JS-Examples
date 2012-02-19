@@ -13,7 +13,31 @@
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          Crafty.e("2D, Canvas, Color").attr({x: 160, y:96, w: 32, h:32}).color("#FF0000");
+          var e1=Crafty.e("2D, DOM, Color")
+          .attr({
+            x: 50
+            , y: 50
+            , w: 50
+            , h: 50
+          })
+          .color("red");
+          var e3=Crafty.e("2D, DOM, Color")
+          .attr({
+            x: 100
+            , y: 50
+            , w: 50
+            , h: 50
+          })
+          .color("blue");
+          e1.attach(e3);
+
+          var e2=e1.clone();
+          e2.attr({
+            x: 250
+            , y: 50
+            , w: 50
+            , h: 50
+          });
         });
         Crafty.scene("main")
       };

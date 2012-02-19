@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
   <head>
     <style>
@@ -13,8 +13,14 @@
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          Crafty.e("2D, Canvas, Color").attr({x: 160, y:96, w: 32, h:32}).color("#FF0000");
+          Crafty.e("2D, DOM, Color, Mouse")
+          .attr({x: 160, y:96, w: 32, h:32})
+          .color("red")
+          .bind("Click", function(e) {
+            this.destroy()
+          });
         });
+
         Crafty.scene("main")
       };
     </script>

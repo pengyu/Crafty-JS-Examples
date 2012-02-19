@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -7,11 +7,13 @@
     </style>
   </head>
   <body>
-    <div id='x'></div>
-    <div id='y'></div>
-    <div id='targetx'></div>
-    <div id='targety'></div>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
-    <script src='main.js'> </script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+        Crafty.canvas.init();
+      }
+    </script>
+    <div id="cr-stage">xxxxxxxxxxxxx</div>
   </body>
 </html>

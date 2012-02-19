@@ -1,27 +1,28 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
   <head>
     <style>
       body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
-      #cr-stage { border:2px solid black; margin:5px auto}
+      #cr-stage { border:2px solid black; margin:5px auto;}
     </style>
   </head>
   <body>
+    <!--
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    -->
+    <script type="text/javascript" src="http://localhost/~pengy/crafty/crafty.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init();
+        Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          Crafty.modules('http://cdn.craftycomponents.com'
-          , {
-            MoveTo: "release"
-          }
-          , function(){
-            Crafty.e("2D, DOM, Color, MoveTo")
-            .attr({x: 0, y: 0, w: 50, h: 50})
-            .color("green");
+          var e=Crafty.e("2D, DOM")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .css({
+            "background-color": "red",
+            "border-style": "solid"
           });
+          e._element.innerHTML=e.getId();
         });
 
         Crafty.scene("main");

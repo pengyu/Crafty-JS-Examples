@@ -7,7 +7,13 @@
     </style>
   </head>
   <body>
+    <button onclick="toggle_mute()">Mute/Unmute</button>
+    <button onclick="mute()">Mute</button>
+    <button onclick="unmute()">Unmute</button>
+    <!--
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    -->
+    <script type="text/javascript" src="http://localhost/~pengy/crafty/crafty.js"></script>
     <script>
       window.onload = function () {
         Crafty.audio.add({
@@ -18,7 +24,16 @@
           ],
         });
 
-        Crafty.audio.play("shoot");
+        Crafty.audio.play("shoot", -1);
+      }
+      function toggle_mute() {
+        Crafty.audio.mute();
+      }
+      function mute() {
+        Crafty.audio.mute(true);
+      }
+      function unmute() {
+        Crafty.audio.mute(false);
       }
     </script>
   </body>

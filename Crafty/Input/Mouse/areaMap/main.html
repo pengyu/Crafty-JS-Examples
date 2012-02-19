@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
   <head>
     <style>
       body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
-      #cr-stage { border:2px solid black; margin:5px auto; color:white }
+      #cr-stage { border:2px solid black; margin:5px auto}
     </style>
   </head>
   <body>
@@ -13,12 +13,19 @@
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          Crafty.e("2D, Canvas, Color").attr({x: 160, y:96, w: 32, h:32}).color("#FF0000");
+          var e=Crafty.e("2D, DOM, Color, Mouse")
+          .attr({x: 0, y: 0, w: 100, h: 100})
+          .color("red")
+          .areaMap([0,0], [50,0], [50,50], [0,50])
+          .bind('MouseOver', function() {
+            this.color("yellow")
+          });
         });
-        Crafty.scene("main")
-      };
-    </script>
 
+        Crafty.scene("main");
+      }
+
+
+    </script>
   </body>
 </html>
-</body>

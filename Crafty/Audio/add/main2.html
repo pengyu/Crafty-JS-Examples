@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.audio.add({
+          water: [
+          "water_splash.wav",
+          "water_splash.mp3",
+          "water_splash.ogg",
+          ],
+          laser1: [
+          "laser1.wav",
+          "laser1.mp3",
+          "laser1.ogg",
+          ],
+        });
+
+        Crafty.audio.play("laser1");
+      }
+    </script>
+  </body>
+</html>

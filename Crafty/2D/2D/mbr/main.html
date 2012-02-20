@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -14,18 +14,12 @@
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          var e=Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
-          //.attr({rotation: 30})
+          var e1=Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 150})
           .color("red");
 
-          e.rotation=30;
-
-          document.getElementById("mbr").innerHTML=JSON.stringify(e.mbr());
-
-          Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
-          .color("yellow");
+          //document.getElementById("mbr").innerHTML=JSON.stringify(e1.mbr());
+          document.getElementById("mbr").innerHTML=JSON.stringify(e1._mbr);
         });
 
         Crafty.scene("main");

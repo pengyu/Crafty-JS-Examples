@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -7,25 +7,23 @@
     </style>
   </head>
   <body>
-    <div id="mbr"></div>
+    <div id="id1"></div>
+    <div id="id2"></div>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
         Crafty.init(400, 336);
 
         Crafty.scene("main", function () {
-          var e=Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
-          //.attr({rotation: 30})
+          var e1=Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 150})
           .color("red");
-
-          e.rotation=30;
-
-          document.getElementById("mbr").innerHTML=JSON.stringify(e.mbr());
-
-          Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
+          var e2=Crafty.e("2D, DOM, Color")
+          .attr({x: 200, y: 200, w: 150, h: 150})
           .color("yellow");
+
+          document.getElementById("id1").innerHTML=e1._global;
+          document.getElementById("id2").innerHTML=e2._global;
         });
 
         Crafty.scene("main");

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        /*
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .color("red");
+        });
+
+        Crafty.scene("main");
+        */
+
+
+        Crafty.sprite(128,"http://files.cruel-online.de/img/red_knight_128.png",{player:[8,4]});
+
+        Crafty.sprite(256,288,"http://files.cruel-online.de/img/objects/smithy01.png",{building:[0,0]});
+
+        Crafty.sprite(128,192,"http://files.cruel-online.de/img/objects/tree02.png",{tree:[0,0]});
+        Crafty.sprite(128,96,"http://files.cruel-online.de/img/tiles/gras.png",{gras:[0,0]});
+
+        var map = Crafty.isometric.size(128,96);
+        var area = map.area(1,1);
+        for(var y = area.y.start ; y < area.y.end;y++){
+          for(var x = area.x.start;x  < area.x.end;x++){
+            tile = Crafty.e("2D","DOM","gras");
+
+            map.place(x,y,0,tile);
+
+          }
+        }
+
+        map.slice(49,50,1, Crafty.e("2D","DOM","building"));
+        map.slice(48,52,1, Crafty.e("2D","DOM","tree"));
+      };
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage {
+        border-style:solid;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(600, 400);
+        Crafty.canvas.init();
+
+        var ctx=Crafty.canvas.context;
+        ctx.fillStyle="#FF0000";
+        ctx.fillRect(50,50,150,75);
+      };
+    </script>
+  </body>
+</html>

@@ -8,6 +8,8 @@
   </head>
   <body>
     <div id="mbr"></div>
+    <div id="mbr0"></div>
+    <div id="mbr1"></div>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
@@ -16,16 +18,13 @@
         Crafty.scene("main", function () {
           var e=Crafty.e("2D, DOM, Color")
           .attr({x: 100, y: 100, w: 150, h: 200})
-          //.attr({rotation: 30})
           .color("red");
+          document.getElementById("mbr").innerHTML=JSON.stringify(e._mbr);
 
-          e.rotation=30;
-
-          document.getElementById("mbr").innerHTML=JSON.stringify(e.mbr());
-
-          Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
-          .color("yellow");
+          e._rotate(.01);
+          document.getElementById("mbr0").innerHTML=JSON.stringify(e._mbr);
+          e._rotate(1);
+          document.getElementById("mbr1").innerHTML=JSON.stringify(e._mbr);
         });
 
         Crafty.scene("main");

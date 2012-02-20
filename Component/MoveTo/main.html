@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -10,14 +10,17 @@
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init(400, 336);
-        Crafty.canvas.init();
+        Crafty.init();
 
         Crafty.scene("main", function () {
-          Crafty.modules({MoveTo: "RELEASE"}, function(){
+          Crafty.modules('http://cdn.craftycomponents.com'
+          , {
+            MoveTo: "release"
+          }
+          , function(){
             Crafty.e("2D, DOM, Color, MoveTo")
             .attr({x: 0, y: 0, w: 50, h: 50})
-            .color("rgb(0,255,0)");
+            .color("green");
           });
         });
 

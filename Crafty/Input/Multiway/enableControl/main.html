@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto}
+    </style>
+  </head>
+  <body>
+    <div>Click the button to disable the Multiway component, click again to reenable it.</div>
+    <button id="control">Disable</button>
+    <!--
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script type="text/javascript" src="http://localhost/~pengy/crafty/crafty.js"></script>
+    -->
+    <script type="text/javascript" src="../crafty.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          var e=Crafty.e("2D, DOM, Multiway, Mouse")
+          .attr({
+            x: 50
+            , y: 50 
+            , w: 50
+            , h: 50
+          })
+          .css({
+            "background-color": "red"
+          })
+          .multiway(1, {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180})
+          ;
+
+          var control=(function() {
+            var enabled=true;
+            return function() {
+              if(enabled) {
+                e.disableControl();
+                enabled=false;
+                this.innerHTML='Enable'
+                } else {
+                e.enableControl();
+                enabled=true;
+                this.innerHTML='Disable'
+              }
+            }
+          })();
+
+          var button=document.getElementById("control");
+          button.addEventListener('click', control, false);
+
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

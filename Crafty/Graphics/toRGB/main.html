@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <div>
+      Crafty.toRGB('ffffff') = <span id='ffffff'></span>
+    </div>
+    <div>
+      Crafty.toRGB('#ffffff') = <span id='#ffffff'></span>
+    </div>
+    <div>
+      Crafty.toRGB('ffffff', .5) = <span id='ffffffalpha'></span>
+    </div>
+    <!--
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    -->
+    <script type="text/javascript" src="http://localhost/~pengy/crafty/crafty.js"></script>
+    <script>
+      document.getElementById('ffffff').innerHTML=Crafty.toRGB('ffffff')
+      document.getElementById('#ffffff').innerHTML=Crafty.toRGB('#ffffff')
+      document.getElementById('ffffffalpha').innerHTML=Crafty.toRGB('ffffff', .5)
+    </script>
+  </body>
+</html>

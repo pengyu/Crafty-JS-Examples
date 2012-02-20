@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -7,51 +7,19 @@
     </style>
   </head>
   <body>
-    <script type="text/javascript" src="https://s3.amazonaws.com/craftyjs/crafty-SNAPSHOT.js"></script>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
-        //start crafty
         Crafty.init(400, 336);
 
-        //method to generate the map
-        function generateWorld() {
-          Crafty.background("#000");
-
-          //loop through all tiles
-          for (var i = 0; i < 25; i++) {
-            for (var j = 0; j < 21; j++) {
-              //create a fence of bushes
-              if(i === 0 || i === 24 || j === 0 || j === 20)
-              Crafty.e("2D, DOM, solid")
-              .attr({
-                x:i*16
-                , y:j*16
-                , w:16
-                , h:16
-                , z:2
-              })
-              .css({
-                "background-color":"blue" 
-              })
-              ;
-            }
-          }
-        }
-
         Crafty.scene("main", function () {
-          generateWorld();
+          Crafty.e("2D, DOM, Color, solid")
+          .attr({x:100, y:100, w:50, h:50})
+          .color("yellow");
 
-          var player2 = Crafty.e("2D, DOM, Multiway, Collision")
-          .attr({
-            x:368
-            , y:16
-            , w:16
-            , h:16
-            , z:1
-          })
-          .css({
-            "background-color":"red" 
-          })
+          Crafty.e("2D, DOM, Color, Multiway, Collision")
+          .attr({x:200, y:200, w:50, h:50})
+          .color("red")
           .multiway(1, {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180})
           .bind('Moved', function(from) {
             if(this.hit('solid')){

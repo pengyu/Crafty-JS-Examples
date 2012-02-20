@@ -12,10 +12,10 @@
         Crafty.init(400, 400);
 
         Crafty.modules('http://cdn.craftycomponents.com/', { HitBox: 'release' }, function () {
-          me = Crafty.e("2D, DOM, Color, Collision, SolidHitBox") //SolidHitBox or WiredHitBox
+          me = Crafty.e("2D, DOM, Color, Collision, SolidHitBox")
           .attr({x: 100, y: 100, w: 50, h: 50})
           .color("red")
-          .collision(new Crafty.polygon([[0,0],[50,0],[0,50]]));
+          .collision(new Crafty.polygon([0,0],[50,0],[0,50]));
         });
         Crafty.addEvent(this, "mousemove", function(e) {
           var pos = Crafty.DOM.translate(e.clientX, e.clientY);

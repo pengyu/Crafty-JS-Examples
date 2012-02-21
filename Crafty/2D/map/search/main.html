@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 400);
+
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 0, y: 0, w: 400, h: 400})
+          .color("red");
+          console.log(Crafty.map.search({_x: 0, _y: 0, _w: 400, _h: 400}))
+          console.log(Crafty.map.search({_x: 0, _y: 0, _w: 400, _h: 400}, false))
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

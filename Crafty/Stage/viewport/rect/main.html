@@ -8,7 +8,9 @@
     </style>
   </head>
   <body>
-    <script type="text/javascript" src="https://s3.amazonaws.com/craftyjs/crafty-SNAPSHOT.js"></script>
+    <div>Note that Crafty.viewport.x=100; but the value of rect._x is -100.</div>
+    <div id='viewport'></div>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
         Crafty.init(400, 336);
@@ -19,6 +21,8 @@
         });
 
         Crafty.viewport.x=100;
+        Crafty.viewport.y=50;
+        document.getElementById('viewport').innerHTML=JSON.stringify(Crafty.viewport.rect());
         Crafty.scene("main");
       };
     </script>

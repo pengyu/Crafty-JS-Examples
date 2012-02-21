@@ -2,7 +2,6 @@
 <html>
   <head>
     <style>
-      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
       #cr-stage { border:2px solid black; margin:5px auto; color:white }
     </style>
   </head>
@@ -10,39 +9,22 @@
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init(400, 336);
-
-        Crafty.scene("main", function () {
-          var e1=Crafty.e("2D, DOM, Color")
-          .attr({
-            x: 50
-            , y: 50
-            , w: 50
-            , h: 50
-          })
-          .color("red");
-          var e3=Crafty.e("2D, DOM, Color")
-          .attr({
-            x: 100
-            , y: 50
-            , w: 50
-            , h: 50
-          })
-          .color("blue");
-          e1.attach(e3);
-
-          var e2=Crafty.clone(e1);
-          e2.attr({
-            x: 250
-            , y: 50
-            , w: 50
-            , h: 50
-          });
-        });
-        Crafty.scene("main")
+        (function() {
+          var x={x:1, y:2};
+          var y=x;
+          y.x=3
+          document.write(JSON.stringify(x) + '<br/>');
+          document.write(JSON.stringify(y) + '<br/>');
+        })();
+        (function() {
+          var x={x:1, y:2};
+          var y=Crafty.clone(x);
+          y.x=3
+          document.write(JSON.stringify(x) + '<br/>');
+          document.write(JSON.stringify(y) + '<br/>');
+        })();
       };
     </script>
-
   </body>
 </html>
 </body>

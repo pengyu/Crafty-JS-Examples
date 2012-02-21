@@ -8,14 +8,17 @@
   </head>
   <body>
     <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script type="text/javascript" src="Circle2D.js"></script>
     <script>
       window.onload = function () {
         Crafty.init(400, 336);
+        Crafty.canvas.init();
 
         Crafty.scene("main", function () {
-          Crafty.e("2D, DOM, Color")
-          .attr({x: 100, y: 100, w: 150, h: 200})
-          .color("red");
+          e=Crafty.e("Circle2D")
+          .attr({x: 100, y: 100})
+          .circle(100)
+          .color("ff0000");
         });
 
         Crafty.scene("main");

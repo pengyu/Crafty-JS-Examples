@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 400);
+        Crafty.canvas.init();
+
+        Crafty.modules('http://cdn.craftycomponents.com/', { HitBox: 'release' }, function () {
+          me = Crafty.e("2D, Canvas, Color, Collision, SolidHitBox")
+          .attr({x: 100, y: 100, w: 50, h: 50})
+          .color("yellow")
+          .collision(new Crafty.polygon([0,0],[50,0],[0,50]));
+
+          me1=Crafty.e("2D, Canvas, Color, Collision, SolidHitBox")
+          .attr({x: 200, y: 200, w: 50, h: 50})
+          .color("red")
+          .collision(new Crafty.polygon([0,0],[50,0],[0,50]));
+        });
+        Crafty.addEvent(this, "mousemove", function(e) {
+          var pos = Crafty.DOM.translate(e.clientX, e.clientY);
+          me.rotation = ~~(Math.atan2(pos.y - me._y, pos.x - me._x) * (180 / Math.PI)) + 90;
+          me1.rotation = ~~(Math.atan2(pos.y - me1._y, pos.x - me1._x) * (180 / Math.PI)) + 90;
+        })
+
+      };
+    </script>
+  </body>
+</html>

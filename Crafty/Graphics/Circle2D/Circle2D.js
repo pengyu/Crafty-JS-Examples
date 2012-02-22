@@ -1,4 +1,3 @@
-//{{{ Circle Component
 Crafty.c("Circle2D", {
     _radius: 8,
     fillStyle:"rgba(0,255,0,1)",
@@ -13,21 +12,29 @@ Crafty.c("Circle2D", {
     },
 
     init: function() {
-      this.requires("2D, Canvas");
+      //this.requires("2D, Canvas");
 
       this.w = this.h = 2*this.radius;
       var TWO_PI = Math.PI*2;
 
-      this.bind("Draw", function(e) {
+      var draw=function(e) {
+        if (e.type === "canvas") {
           e.ctx.fillStyle = this.fillStyle;
           e.ctx.strokeStyle = this.strokeStyle;
           e.ctx.beginPath();
           e.ctx.arc(this.x, this.y, this.radius, 0, TWO_PI, true);
           e.ctx.closePath();
           e.ctx.fill();
+        }
+        this.trigger("Change")
+      };
+
+      this.bind("Draw", draw).bind("RemoveComponent", function (id) {
+          if (id === "Circle2D") this.unbind("Draw", draw);
         });
-      this.trigger("Change");
+      //this.trigger("Change");
     },
+
     circle: function(radius) {
       this.radius = radius;
       this.trigger("Change");
@@ -40,5 +47,3 @@ Crafty.c("Circle2D", {
       return this;
     }
   });
-
-//}}} 

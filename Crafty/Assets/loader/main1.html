@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
+      #cr-stage { border:2px solid black; margin:5px auto;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("loading", function () {
+          Crafty.e("2D, DOM, Text")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .text("Loading..");
+
+
+          var onLoad = function() {
+            setTimeout(function() {
+              Crafty.scene("main");
+            },1000);
+          };
+
+          var onProgress=function(e) {
+            console.log('success: ' + e)
+          };
+
+          Crafty.load(
+          ['crate.png', 'missing.png'],
+          onLoad,
+          onProgress
+          );
+        }
+        )
+
+        Crafty.scene("main", function () {
+          Crafty.e("2D, DOM, Color")
+          .attr({x: 100, y: 100, w: 150, h: 200})
+          .color("red");
+        });
+
+        Crafty.scene("loading");
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <style>
+      #cr-stage {
+        border-style:solid;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.onload = (function() {
+        Crafty.init(400, 336);
+
+        Crafty.scene('main', function() {
+          Crafty.sprite(32, "crate.png", {crate: [0, 0]});
+
+          //Crafty.e("2D, Canvas, Color, crate, solid")
+          Crafty.e("2D, Canvas, crate, solid")
+          .attr({x: 100, y: 100, w: 100, h: 100});
+          //.color('red');
+
+          Crafty.e("2D, Canvas, Color, Multiway")
+          .attr({x: 200, y: 200, w: 50, h: 50})
+          .color('red')
+          .multiway(1, {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180})
+          ;
+        });
+
+        Crafty.scene('main');
+      });
+    </script>
+  </body>
+</html>

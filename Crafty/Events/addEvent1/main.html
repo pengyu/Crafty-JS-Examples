@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://cdn.crafty-modules.com/crafty-DEBUG.js"></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 336);
+
+        Crafty.scene("main", function () {
+          var player=Crafty.e("2D, DOM, Color")
+          .attr({
+            x: 100
+            , y: 100 
+            , w: 50
+            , h: 50
+          })
+          .color("red");
+
+          var player2=Crafty.e("2D, DOM, Color")
+          .attr({
+            x: 200
+            , y: 200 
+            , w: 50
+            , h: 50
+          })
+          .color("red");
+
+          (function() {
+            var is_red=true;
+            Crafty.addEvent(player, "mouseup", function() {
+              if(is_red) {
+                this.color('yellow');
+                is_red=false;
+                } else {
+                this.color('red');
+                is_red=true;
+              }
+            });
+          })();
+
+          (function() {
+            var is_red=true;
+            Crafty.addEvent(player2, Crafty.stage.elem, "mouseup", function() {
+              if(is_red) {
+                this.color('yellow');
+                is_red=false;
+                } else {
+                this.color('red');
+                is_red=true;
+              }
+            });
+          })();
+
+        });
+
+        Crafty.scene("main");
+      };
+    </script>
+  </body>
+</html>

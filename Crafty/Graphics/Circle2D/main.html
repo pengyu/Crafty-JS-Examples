@@ -2,8 +2,10 @@
 <html>
   <head>
     <style>
-      body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
-      #cr-stage { border:2px solid black; margin:5px auto;}
+      /*#cr-stage { border:2px solid black; margin:5px auto;}*/
+      /*#cr-stage {border:2px solid black; margin:0px auto;}*/
+      body {margin:0px;}
+      #cr-stage {border:2px solid black; margin:0px;}
     </style>
   </head>
   <body>
@@ -11,14 +13,31 @@
     <script type="text/javascript" src="Circle2D.js"></script>
     <script>
       window.onload = function () {
-        Crafty.init(400, 336);
-        Crafty.canvas.init();
+        //Crafty.init(400, 336);
+        Crafty.init();
 
         Crafty.scene("main", function () {
-          e=Crafty.e("Circle2D")
-          .attr({x: 100, y: 100})
-          .circle(100)
-          .color("ff0000");
+          var player=Crafty.e("Circle2D")
+          .circleCenter(100, 100)
+          .circleRadius(100)
+          .velocity(1,1)
+          .color("ff0000")
+          .bind("EnterFrame", function () {
+            this.step();
+          });
+
+          function fire(e) {
+            var vx=e.clientX-this.getCenterX();
+            var vy=e.clientY-this.getCenterY();
+
+            var vr=Math.sqrt(vx*vx + vy*vy);
+            vx=vx/vr;
+            vy=vy/vr;
+
+            this.addVelocity(vx, vy);
+          }
+
+          Crafty.addEvent(player, Crafty.stage.elem, "click", fire);
         });
 
         Crafty.scene("main");

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #cr-stage { border:2px solid black; margin:5px auto; color:white }
+    </style>
+  </head>
+  <body>
+    <script type='text/javascript' src='http://cdn.craftycomponents.com/crafty-dev-uncompressed.js'></script>
+    <script>
+      window.onload = function () {
+        Crafty.init(400, 400);
+
+        //turn the sprite map into usable components
+        Crafty.sprite(16, 'sprite.png', {
+          player: [0, 3],
+        });
+
+        Crafty.scene('main', function () {
+          var id='walk_left';
+          var fromX=6;
+          var y=3;
+          var toX=8;
+          duration=10;
+          repeatCount=-1;
+
+          for(var i=0; i < 25; ++i) {
+            for(var j=0; j < 25; ++j) {
+              var player2 = Crafty.e('2D, DOM, player, SpriteAnimation')
+              .attr({ x: 16 * i, y: 16 * j, z: 1 })
+              .animate(id, fromX, y, toX)
+              .animate(id, duration, repeatCount);
+            }
+          }
+        });
+
+        Crafty.scene('main');
+      }
+    </script>
+  </body>
+</html>

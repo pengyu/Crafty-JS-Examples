@@ -2,4 +2,4 @@
 
 To view the examples, prepend path with [pengyu.github.com/Crafty-JS-Examples][].
 
-For example, to view <https://github.com/pengyu/Crafty-JS-Examples/blob/master/Crafty/Graphics/Color/main.html>, go to <pengyu.github.com/Crafty-JS-Examples/Crafty/Graphics/Color/main.html>.
+For example, to view <https://github.com/pengyu/Crafty-JS-Examples/blob/gh-pages/Crafty/Graphics/Color/main.html>, go to <http://pengyu.github.com/Crafty-JS-Examples/Crafty/Graphics/Color/main.html>.

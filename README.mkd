@@ -1,1 +1,5 @@
 [Crafty](http://craftyjs.com) API document is kind of light. The examples are just snippets which are not runnable. I created some stand-alone examples, so that uses can run any of them without the need to add additional code. Note that this is project in progress. Examples of only a small number of functions in Crafty have been created.
+
+To view the examples, prepend path with [pengyu.github.com/Crafty-JS-Examples][].
+
+For example, to view <https://github.com/pengyu/Crafty-JS-Examples/blob/master/Crafty/Graphics/Color/main.html>, go to <pengyu.github.com/Crafty-JS-Examples/Crafty/Graphics/Color/main.html>.
